@@ -1,6 +1,10 @@
 #!/bin/bash
 
-cp .zshrc ~/ && cp .tmux.conf ~/ && sudo cp mount-shared-folders /usr/local/sbin && sudo chmod +x /usr/local/sbin/mount-shared-folders && sudo /usr/local/sbin/mount-shared-folders && sudo cp vpn*.sh /opt/
+cp .zshrc ~/ && cp .tmux.conf ~/ && sudo cp mount-shared-folders /usr/local/sbin && sudo chmod +x /usr/local/sbin/mount-shared-folders && sudo /usr/local/sbin/mount-shared-folders
+
+ln -s /mnt/hgfs/VM_Share ~/share
+
+sudo mv vpn*.sh /opt
 
 sudo apt update && sudo apt full-upgrade 
 
