@@ -9,7 +9,7 @@ ln -s /mnt/hgfs/VM_Share ~/share
 sudo apt update && sudo apt full-upgrade
 
 # Install utilities from the repo
-sudo apt install -y --reinstall open-vm-tools-desktop fuse xclip seclists payloadsallthethings kerberoast python-is-python3 masscan dsniff dnsrecon dnsenum busybox html2text edb-debugger sshuttle socat beef-xss powershell-empire joomscan jboss-autopwn mingw-w64 pure-ftpd atftp wine xclip exiftool rinetd tor python3-pip telnet golang dotdotpwn steghide gcc-multilib bloodhound gvm rlwrap gobuster sublist3r foremost
+sudo apt install -y --reinstall open-vm-tools-desktop fuse xclip seclists payloadsallthethings kerberoast python-is-python3 masscan dsniff dnsrecon dnsenum busybox html2text edb-debugger sshuttle socat beef-xss powershell-empire joomscan jboss-autopwn mingw-w64 pure-ftpd atftp wine xclip exiftool rinetd tor python3-pip telnet golang dotdotpwn steghide gcc-multilib bloodhound gvm rlwrap gobuster sublist3r foremost network-manager-*-gnome
 
 # Install ruby utilities
 sudo gem install pry evil-winrm
