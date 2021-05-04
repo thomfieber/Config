@@ -1,5 +1,6 @@
 # ~/.zshrc file for zsh non-login shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
+export LANG=en_US.UTF-8
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -77,7 +78,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}[$(/opt/vpnbash.sh)]─(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})─[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└──╼ %B%(#.%F{red}#.%F{yellow}$)%b%F{reset} '   
+	PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}[$(/opt/vpnbash.sh)]─(%b%F{%(#.red.white)}%n%b%F{%(#.red.blue)}%(#.@.@)%m%b%F{%(#.blue.green)})─[%b%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└──╼ %b%(#.%F{red}#.%F{yellow}$)%b%F{reset} '
     RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
@@ -188,20 +189,19 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias pc='proxychains'
-alias cme='crackmapexec'
-alias subl='sublime $1'
-alias labs='cd ~/Labs'
-alias thm='cd ~/Labs/TryHackMe'
-alias tools='cd ~/Tools'
-alias imp='cd ~/Tools/Impacket'
-alias htb='cd ~/Labs/HackTheBox'
-alias els='cd ~/Labs/els'
-alias thm-connect='sudo openvpn ~/Labs/TryHackMe/thm.ovpn'
-alias throwback-connect='sudo openvpn ~/Labs/TryHackMe/thomfieber-throwback.ovpn'
-alias htb-connect='sudo openvpn ~/Labs/HackTheBox/htb.ovpn'
-alias pwk-connect='sudo openvpn --config ~/Labs/PWK/OS-87625-PWK.ovpn --auth-user-pass ~/Labs/PWK/pass.txt'
-alias pwk='cd ~/Labs/PWK'
+alias go-thm='cd ~/pentest/thm'
+#alias imp='cd ~/Tools/Impacket'
+alias go-htb='cd ~/pentest/htb'
+alias subl='/usr/bin/sublime'
+alias create='. ~/tools/custom/createdir.sh'
+alias transfer='cd ~/transfer'
+alias tools='cd ~/tools'
+alias updatedir='. ~/tools/custom/updatedir.sh'
+alias add-host='~/tools/custom/add-host.sh'
+alias HTB='sudo systemctl start openvpn@htb.service'
+alias THM='sudo systemctl start openvpn@thomfieber-thm.service'
+alias ACADEMY='sudo systemctl start openvpn@academy.service'
+alias stop='sudo systemctl stop openvpn@*'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -211,3 +211,4 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 fi
 
 export PATH=/home/thomas/.local/bin:/usr/sbin:$PATH
+eval "$(direnv hook zsh)"
